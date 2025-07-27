@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background grid similar to your screenshot */
+@layer utilities {
+  .bg-grid {
+    background-image:
+      radial-gradient(1000px 600px at 50% -100px, rgba(2,6,23,0.06), transparent 70%),
+      linear-gradient(to right, rgba(17,24,39,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17,24,39,0.06) 1px, transparent 1px);
+    background-size: 100% 100%, 48px 48px, 48px 48px;
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  /* Fade out after the 4th logo on the right edge */
+  .mask-fade-right {
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 64px), transparent 100%);
+            mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 64px), transparent 100%);
+  }
+}
+
+/* Typographic helpers */
+:root { --radius: 14px; }
+.heading-xl { @apply font-semibold tracking-tight text-5xl sm:text-6xl md:text-7xl leading-[1.05]; letter-spacing: -0.02em; }
+.subtle { @apply text-muted-foreground text-lg sm:text-xl; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.bg-hero-tiles {
+  background-image: url("/hero-tiles.svg"); /* served from /public at root */
+  background-repeat: repeat;
+  background-size: 320px 320px; /* tile density — tweak to 280/360px to taste */
+}
+
+
+.bg-hero-fade {
+  background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0) 45%,
+      rgba(255, 255, 255, 0.85) 80%,
+      #ffffff 100%
+  );
+}
