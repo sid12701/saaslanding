@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollColorText, type Line } from "./ScrollColorText";
+import { HeadingAnimation, ContentAnimation } from "./micro-animation";
 
 /**
  * Example that mirrors your screenshots.
@@ -22,18 +23,25 @@ const LINES: Line[] = [
 
 export default function ScrollCopySection() {
   return (
-    <section className="bg-white">
+    <section className="bg-white" id="problem">
       <div className="container py-20 md:py-28">
+        <HeadingAnimation>
+        <h6 className="text-center text-xl font-light text-[#007BA7] pb-10">
+          THE PROBLEM
+        </h6>
+        </HeadingAnimation>
+        <ContentAnimation delay={0.3}>
         <ScrollColorText
           lines={LINES}
           className="mx-auto"
-          lineClassName="text-[28px] md:text-[48px] font-semibold leading-tight text-center"
+          lineClassName="text-[28px] md:text-[48px] font-light leading-tight text-center"
           mainColorClass="text-slate-900"
-          accentColorClass="text-indigo-500"
+          accentColorClass="text-[#007BA7]"
           mutedColorClass="text-slate-400/80"
           // Optional: make reveal snappier/slower by adjusting window size per line:
           // revealWindow={0.18}
         />
+        </ContentAnimation>
       </div>
     </section>
   );

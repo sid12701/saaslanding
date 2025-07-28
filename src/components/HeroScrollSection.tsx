@@ -12,7 +12,7 @@ export default function HeroScrollSection() {
       className={
         // Zero-gap by default. For an even tighter seam, enable one of the -mt classes:
         // "-mt-2 md:-mt-4" or "-mt-4 md:-mt-8"
-        "flex flex-col overflow-hidden pt-0 pb-0"
+        "flex flex-col overflow-hidden pt-0 pb-0 -mt-36"
       }
     >
       <ContainerScroll compact>

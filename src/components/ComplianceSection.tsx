@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "../lib/utils";
+import { HeadingAnimation, ContentAnimation } from "./micro-animation";
 
 /* ---------- Types ---------- */
 
@@ -57,19 +58,22 @@ export default function ComplianceSection({
   className,
 }: ComplianceSectionProps) {
   return (
-    <section className={cn("bg-white", className)}>
+    <section className={cn("bg-white", className)} id="compliance">
       {/* Wider container so cards appear wider */}
       <div className="container max-w-[1440px] py-16 md:py-24">
+      <HeadingAnimation>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">{heading}</h2>
           {subheading && <p className="mt-3 text-slate-600 text-base md:text-lg">{subheading}</p>}
         </div>
-
+        </HeadingAnimation>
+        <ContentAnimation delay={0.4}>
         <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-3">
           <ComplianceCardView data={cards[0]} />
           <ComplianceCardView data={cards[1]} />
           <ComplianceCardView data={cards[2]} />
         </div>
+        </ContentAnimation>
       </div>
     </section>
   );

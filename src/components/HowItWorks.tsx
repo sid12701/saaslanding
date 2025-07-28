@@ -1,6 +1,11 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "../lib/utils";
+import howItWorks1 from "../assets/howitworks1.png";
+import howItWorks2 from "../assets/howitworks2.png";
+import howItWorks3 from "../assets/howitworks3.png";
+import { HeadingAnimation, ContentAnimation } from "./micro-animation";
+
 
 type Step = {
   id: string;
@@ -19,7 +24,7 @@ const STEPS: Step[] = [
     description:
       "Share your lab’s details through our simple signup form. One of our experts will promptly reach out to understand your needs and guide you through the setup process.",
     imageSrc:
-      "https://images.unsplash.com/photo-1604882732435-69474a4e2533?q=80&w=1600&auto=format&fit=crop",
+      howItWorks1,
     imageAlt: "Onboarding call scheduled",
   },
   {
@@ -29,7 +34,7 @@ const STEPS: Step[] = [
     description:
       "Experience the full power of LIMSpire with a no‑obligation 30‑day trial. Get hands‑on with intuitive sample tracking, AI anomaly alerts, and compliance tools to see the benefits firsthand.",
     imageSrc:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop",
+      howItWorks2,
     imageAlt: "Using the app during free trial",
   },
   {
@@ -39,7 +44,7 @@ const STEPS: Step[] = [
     description:
       "After your trial, select a subscription that fits your lab’s size and needs. Pay a nominal monthly fee to continue uninterrupted access, with premium support and regular updates included.",
     imageSrc:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop",
+      howItWorks3,
     imageAlt: "Selecting a plan",
   },
 ];
@@ -69,8 +74,10 @@ export default function HowItWorks() {
     <section id="how-it-works" className="bg-white">
       <div className="container py-16 md:py-24">
         {/* Heading */}
+        <HeadingAnimation>
         <h2 className="text-center text-3xl md:text-5xl font-semibold">How it Works?</h2>
-
+        </HeadingAnimation>
+        <ContentAnimation delay={0.3}>
         {/* Grid */}
         <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-2">
           {/* Left: Tabs (vertical) */}
@@ -127,7 +134,9 @@ export default function HowItWorks() {
             </div>
           </div>
         </div>
+        </ContentAnimation>
       </div>
+
     </section>
   );
 }

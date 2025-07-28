@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../lib/utils";
+import { ContentAnimation, HeadingAnimation } from "./micro-animation";
 
 /** Small feature blurb shown in the two-column row under the divider */
 type Blurb = {
@@ -113,9 +114,10 @@ export default function LabCoveredSection({
   };
 
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-white" id="solution">
       <div className="container py-16 md:py-24">
         {/* Heading block */}
+        <HeadingAnimation>
         <div className="text-center max-w-3xl mx-auto">
           {eyebrow && <p className="text-sm font-medium text-primary mb-2">{eyebrow}</p>}
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">{heading}</h2>
@@ -125,11 +127,13 @@ export default function LabCoveredSection({
             </p>
           )}
         </div>
+        </HeadingAnimation>
 
         {/* Thin divider */}
         <div className="mx-auto mt-8 mb-8 h-px w-full max-w-4xl bg-slate-200" />
 
         {/* Two blurbs now behave as tabs */}
+        <ContentAnimation delay={0.3}>
         <div
           role="tablist"
           aria-label="Feature tabs"
@@ -186,6 +190,7 @@ export default function LabCoveredSection({
             </AnimatePresence>
           </div>
         </div>
+        </ContentAnimation>
       </div>
 
       {/* keeps consistency with your site background */}
@@ -218,7 +223,7 @@ function BlurbTab({
       aria-controls={controls}
       onClick={onClick}
       className={cn(
-        "relative text-left rounded-xl px-2 py-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+        "relative text-left  px-2 py-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
         active ? "bg-primary-25" : "hover:bg-slate-50"
       )}
     >

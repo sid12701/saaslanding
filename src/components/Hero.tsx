@@ -2,9 +2,11 @@
 import * as React from "react";
 import { Button } from "./ui/button";
 import heroBg from "../assets/hero-bg.png";
+import { HeadingAnimation, ContentAnimation } from "./micro-animation";
+
 export default function Hero() {
   return (
-    <section id="problem" className="relative overflow-hidden bg-white">
+    <section id="hero" className="relative overflow-hidden bg-white">
       {/* ✅ Background image (PNG/WebP/AVIF). NO negative z-index */}
       <div aria-hidden className="absolute inset-0 z-0">
           <img
@@ -23,9 +25,12 @@ export default function Hero() {
       {/* ✅ Content above bg */}
       <div className="relative z-10">
         <div className="container py-24 md:py-32 text-center">
+          <HeadingAnimation>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
             Inspire Breakthroughs in <br className="hidden md:block" /> Every Lab
           </h1>
+          </HeadingAnimation>
+          <ContentAnimation delay={0.3}>
           <p className="mt-5 text-slate-600 text-lg">
             Personalized genetic testing for safer, more effective medication.
           </p>
@@ -34,6 +39,7 @@ export default function Hero() {
               Request a Demo
             </Button>
           </div>
+          </ContentAnimation>
         </div>
       </div>
     </section>

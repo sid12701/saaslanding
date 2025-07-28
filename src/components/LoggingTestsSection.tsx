@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useInView } from "framer-motion";
 import { Gravity, MatterBody, type GravityRef } from "./ui/gravity";
-
+import after from "../assets/after.png";
+import { HeadingAnimation, ContentAnimation } from "./micro-animation";
 export default function LoggingTestsSection() {
   // We observe the *Before* card so physics only runs when it’s visible.
   const beforeRef = React.useRef<HTMLDivElement>(null);
@@ -22,9 +23,10 @@ export default function LoggingTestsSection() {
   }, [inView]);
 
   return (
-    <section id="how-it-works" className="bg-white">
+    <section  className="bg-white" id="why-us">
       <div className="container py-16 md:py-24">
         {/* Heading */}
+        <HeadingAnimation>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-5xl font-semibold">
             Why You’ll Love Logging Tests
@@ -36,8 +38,10 @@ export default function LoggingTestsSection() {
             entry count.
           </p>
         </div>
+        </HeadingAnimation>
 
         {/* Two-column content */}
+        <ContentAnimation delay={0.4}>
         <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-2">
           {/* BEFORE — gravity inside this card */}
           <div className="rounded-3xl border border-slate-200 bg-white p-4 md:p-6">
@@ -97,14 +101,14 @@ export default function LoggingTestsSection() {
             <div className="relative mt-4 overflow-hidden rounded-2xl bg-primary-800/40 ring-1 ring-white/10">
               {/* Replace with your real screenshot */}
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop"
+                src={after}
                 alt="Log Test UI preview"
                 className="h-[360px] w-full object-cover"
                 draggable={false}
                 loading="lazy"
               />
               {/* Minimal floating modal to echo the mock (optional) */}
-              <div className="absolute right-6 bottom-6 w-[310px] rounded-xl border border-white/20 bg-white/95 p-3 shadow-soft">
+              {/* <div className="absolute right-6 bottom-6 w-[310px] rounded-xl border border-white/20 bg-white/95 p-3 shadow-soft">
                 <div className="text-[13px] font-semibold text-slate-900">Log Test</div>
                 <div className="mt-2 grid grid-cols-2 gap-2 text-[12px] text-slate-600">
                   <div>
@@ -116,11 +120,12 @@ export default function LoggingTestsSection() {
                     <div className="truncate">Complete Blood Count (CBC)</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* /AFTER */}
         </div>
+        </ContentAnimation>
       </div>
     </section>
   );

@@ -35,13 +35,9 @@ export default function App() {
   rightImageSrc={tab2}
   rightFloatingCards={[
    ]}
-
-  /* Optional: start on right tab */
-  // initialTab="right"
 />
-
-<ComplianceSectionDemo />
 <LoggingTestsSection />
+<ComplianceSectionDemo />
 <HowItWorks />
       </div>
     </main>
